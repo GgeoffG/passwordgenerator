@@ -9,21 +9,21 @@ let okChar= lowercaseChar
 //generate function
 function generatePassword(){
   //number of characters for our password will be selected via the prompt
- let numCha = prompt("How many characters would you like?", 'Choose a number between 1 & 15')
+ let numCha = prompt("How many characters would you like?", 'Choose a number between 8 & 20')
 //sets base array for allowed characters
 
-// checks value of number of characters to see if chosen number fits within parameters 1-15
- if (0<numCha<15) {
+// checks value of number of characters to see if chosen number fits within parameters 8-20
+ if (7<numCha && numCha<21) {
   //Creates boolean value for additional character sets
  let upperOK= confirm("Would you like to include uppercase letters?")
  let numberOK= confirm("Would you like to include numbers?")
  let specialOK= confirm("Would you like to include symbol characters?")
 
  //adds additional allowed characters to the base okChar array
- if (upperOK === true) {okChar = okChar.concat(uppercaseChar)
-}
- if (numberOK === true) {okChar = okChar.concat(numbers)
-}
+ if (upperOK === true) okChar = okChar.concat(uppercaseChar)
+
+ if (numberOK === true) okChar = okChar.concat(numbers)
+
  if (specialOK === true) okChar = okChar.concat(specialChar)
 
 
@@ -41,9 +41,16 @@ if (upperOK === true || specialOK === true ||numberOK == true){
   }
   return passwordChars.join('')
   }
+  //if no additional character sets are accepted, an alert will inform the user
   else {
     alert('For a stronger password please select at least one additional variable')
+    return placeholder="Your Secure Password"
   }
+    }
+    //If no value or a value outside of the range 8-20 is selected an alert will inform the user
+    else {
+      alert('Please select a number value between 8 and 20');
+      passwordChars.push(placeholder="Your Secure Password")
     }
 }
 function arrayPusher(low,high) {
