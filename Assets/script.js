@@ -41,18 +41,21 @@ if (upperOK === true || specialOK === true ||numberOK == true){
   }
   return passwordChars.join('')
   }
-  //if no additional character sets are accepted, an alert will inform the user
+  //if no additional character sets are accepted, an alert will inform the user that they must choose at least one
   else {
     alert('For a stronger password please select at least one additional variable')
+    //replaces placeholder text instead of "undefined"
     return placeholder="Your Secure Password"
   }
     }
     //If no value or a value outside of the range 8-20 is selected an alert will inform the user
     else {
       alert('Please select a number value between 8 and 20');
+      // replaces placeholder text instead of "undefined"
       passwordChars.push(placeholder="Your Secure Password")
     }
 }
+//this function creates an array with all number between a low and high integer
 function arrayPusher(low,high) {
   const array = [] 
   for( i = low; i<=high; i++){
@@ -66,15 +69,15 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword(); //creates a variable that represents the generated password function
+  var passwordText = document.querySelector("#password"); // creates a variable that target the 'password' id in html
 
-  passwordText.value = password;
+  passwordText.value = password;//changes the value of the password id in html to include the generated password
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword); //creates the EventListener that will run the writepassword function if the generate button is clicked
 
 //Math.floor(Math.random())
 //parseInt
