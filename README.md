@@ -1,4 +1,4 @@
-# Horiseon-Web-Services
+# Password Generator
 
 ## Description
 
